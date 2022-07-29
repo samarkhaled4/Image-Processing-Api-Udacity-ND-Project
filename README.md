@@ -5,7 +5,7 @@ This is a simple image processing api
 you can first download needed modules by run 
 > `npm install`
 
-###Main Page
+##Main Page
 Visit main api page by writing in browser
 > `localhost:3000/` or `http://127.0.0.1:3000/` 
 
