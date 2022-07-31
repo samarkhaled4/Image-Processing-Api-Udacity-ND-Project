@@ -1,5 +1,6 @@
 import supertest from 'supertest'
 import app from '../index'
+import displayImage from '../logic/resizeLogic'
 
 const request = supertest(app)
 
@@ -25,12 +26,11 @@ describe('test endpoint responses', () => {
         expect(res1.status).toBe(200)
     })
 
-    //asking to get invaid image name
-    it('gets non valid image name', async () => {
-        const res2 = await request.get(`/api/images?filename=${name2}`)
-        expect(res2.status).toBe(400)
-        expect(res2.text).toBe(
-            "Image name isn't exist , please enter right one !"
-        )
-    })
+    //test function of image processing
+    it('test invalid image name',async()=>{
+        expect (await displayImage(name2,w,h))
+            .toBe('file not exist')
+    }
+
+    )
 })
